@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Mi Primer Formulario HTML</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #4caf50;
+        outline: none;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .resultado {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #e8f5e8;
+        border-radius: 4px;
+        border-left: 4px solid #4caf50;
+        display: none;
+      }
+
+      .resultado h3 {
+        margin-top: 0;
+        color: #2e7d32;
+      }
+
+      .dato {
+        margin-bottom: 10px;
+        padding: 8px;
+        background-color: white;
+        border-radius: 4px;
+      }
+
+      .etiqueta {
+        font-weight: bold;
+        color: #1976d2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>📝 Formulario de Registro</h1>
+
+      <!-- FORMULARIO HTML -->
+      <form id="miFormulario">
+        <!-- Campo de texto simple -->
+        <div class="form-group">
+          <label for="nombre">Nombre completo:</label>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            required
+            placeholder="Escribe tu nombre completo"
+            autofocus
+            pattern="[A-za-z ]{3,40}" />
+        </div>
+
+        <!-- Campo de email -->
+        <div class="form-group">
+          <label for="email">Correo electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="ejemplo@correo.com" />
+        </div>
+
+        <!-- Campo de número -->
+        <div class="form-group">
+          <label for="edad">Edad:</label>
+          <input
+            type="number"
+            id="edad"
+            name="edad"
+            min="18"
+            max="100"
+            required
+            placeholder="Tu edad" />
+        </div>
+
+        <!-- Campo de selección -->
+        <div class="form-group">
+          <label for="ciudad">Ciudad:</label>
+          <select
+            id="ciudad"
+            name="ciudad"
+            required>
+            <option value="">Selecciona tu ciudad</option>
+            <option value="bogota">Bogotá</option>
+            <option value="medellin">Medellín</option>
+            <option value="cali">Cali</option>
+            <option value="barranquilla">Barranquilla</option>
+            <option value="otra">Otra</option>
+          </select>
+        </div>
+
+        <!-- Campos de radio -->
+        <div class="form-group">
+          <label>Experiencia en programación:</label>
+          <input
+            type="radio"
+            id="principiante"
+            name="experiencia"
+            value="principiante"
+            required />
+          <label
+            for="principiante"
+            style="display: inline; margin-left: 5px"
+            >Principiante</label
+          ><br />
+
+          <input
+            type="radio"
+            id="intermedio"
+            name="experiencia"
+            value="intermedio" />
+          <label
+            for="intermedio"
+            style="display: inline; margin-left: 5px"
+            >Intermedio</label
+          ><br />
+
+          <input
+            type="radio"
+            id="avanzado"
+            name="experiencia"
+            value="avanzado" />
+          <label
+            for="avanzado"
+            style="display: inline; margin-left: 5px"
+            >Avanzado</label
+          >
+        </div>
+
+        <!-- Checkbox -->
+        <div class="form-group">
+          <input
+            type="checkbox"
+            id="acepto"
+            name="acepto"
+            required />
+          <label
+            for="acepto"
+            style="display: inline; margin-left: 5px">
+            Acepto los términos y condiciones
+          </label>
+        </div>
+
+        <!-- Área de texto -->
+        <div class="form-group">
+          <label for="comentarios">Comentarios adicionales:</label>
+          <textarea
+            id="comentarios"
+            name="comentarios"
+            rows="4"
+            placeholder="Cuéntanos algo más sobre ti (opcional)"></textarea>
+        </div>
+
+        <!-- Botón de envío -->
+        <button type="submit">🚀 Enviar Formulario</button>
+      </form>
+
+      <!-- ÁREA DONDE SE MOSTRARÁN LOS RESULTADOS -->
+      <div
+        id="resultado"
+        class="resultado">
+        <h3>✅ ¡Formulario enviado exitosamente!</h3>
+        <p>Estos son los datos que enviaste:</p>
+        <div id="datosEnviados"></div>
+      </div>
+    </div>
+
+    <script>
+      // 🎯 SIMULACIÓN DEL ENVÍO DEL FORMULARIO
+
+      // Esperar a que el formulario sea enviado
+      document
+        .getElementById('miFormulario')
+        .addEventListener('submit', function (evento) {
+          // 1. Prevenir que la página se recargue (comportamiento por defecto)
+          evento.preventDefault();
+
+          // 2. Capturar todos los datos del formulario
+          const formulario = evento.target;
+          const datosFormulario = new FormData(formulario);
+
+          // 3. Mostrar los datos en la consola (para estudiantes avanzados)
+          console.log('📊 Datos del formulario:');
+          for (let [campo, valor] of datosFormulario.entries()) {
+            console.log(`${campo}: ${valor}`);
+          }
+
+          // 4. Convertir los datos a un formato legible
+          let datosHTML = '';
+
+          // Recorrer cada campo y crear HTML para mostrar
+          for (let [campo, valor] of datosFormulario.entries()) {
+            // Hacer más legibles los nombres de los campos
+            let nombreCampo = campo;
+            switch (campo) {
+              case 'nombre':
+                nombreCampo = 'Nombre completo';
+                break;
+              case 'email':
+                nombreCampo = 'Correo electrónico';
+                break;
+              case 'edad':
+                nombreCampo = 'Edad';
+                break;
+              case 'ciudad':
+                nombreCampo = 'Ciudad';
+                break;
+              case 'experiencia':
+                nombreCampo = 'Experiencia en programación';
+                break;
+              case 'acepto':
+                nombreCampo = 'Términos aceptados';
+                break;
+              case 'comentarios':
+                nombreCampo = 'Comentarios';
+                break;
+            }
+
+            // Si el campo tiene valor, mostrarlo
+            if (valor && valor.trim() !== '') {
+              datosHTML += `
+                        <div class="dato">
+                            <span class="etiqueta">${nombreCampo}:</span> ${valor}
+                        </div>
+                    `;
+            }
+          }
+
+          // 5. Mostrar los resultados en la página
+          document.getElementById('datosEnviados').innerHTML = datosHTML;
+          document.getElementById('resultado').style.display = 'block';
+
+          // 6. Scroll suave hacia los resultados
+          document.getElementById('resultado').scrollIntoView({
+            behavior: 'smooth',
+          });
+
+          // 7. Mensaje de confirmación adicional
+          alert(
+            '¡Formulario enviado correctamente! 🎉\nRevisa los datos más abajo.'
+          );
+        });
+
+      // 🎯 FUNCIONALIDAD EXTRA: Limpiar formulario
+      function limpiarFormulario() {
+        document.getElementById('miFormulario').reset();
+        document.getElementById('resultado').style.display = 'none';
+      }
+
+      // Agregar botón de limpiar después del envío
+      document.addEventListener('DOMContentLoaded', function () {
+        const contenedor = document.querySelector('.container');
+        const botonLimpiar = document.createElement('button');
+        botonLimpiar.innerHTML = '🗑️ Limpiar Formulario';
+        botonLimpiar.style.backgroundColor = '#ff9800';
+        botonLimpiar.style.marginTop = '10px';
+        botonLimpiar.onclick = limpiarFormulario;
+        contenedor.appendChild(botonLimpiar);
+      });
+    </script>
+  </body>
+</html>

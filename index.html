@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Registro Taller: Diseño web</title>
+</head>
+<body>
+
+    <div class="container">
+        
+       <header>
+         <h1>Registro al taller <br>
+        "DISEÑO WEB PARA PRINCIPIANTES CON IA"</h1>
+        <p>Aprende a crear sitios web impresionantes desde
+            cero utilizando herramientas de inteligencia artificial.
+        </p>
+       </header>
+
+       <form action="Encuesta">
+        <fieldset>
+            <legend>informacion personal</legend>
+
+              <div class="form-gruop">
+                 <label for="nombre"><Nombre>Nombre completo*</label>
+                 <input 
+                 type="text"
+                 id="nombre"
+                 required
+                 planeholder="Escribe tu nombre completo"
+                 pattern="[A-Za-z ]{3,40}">
+                </div>
+
+                <div class="form-gruop">
+                 <label for="email">Correo electrónico*</label>
+                 <input 
+                 type="email"
+                 id="email"
+                 required
+                 placeholder="ejemplo@correo.com"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                </div>
+                <div class="form-gruop">
+                 <label for="edad">Edad*</label>
+                 <input 
+                 type="number"
+                 id="edad"
+                 min="18"
+                 max="100"
+                 required
+                 placeholder="Tu edad">
+                </div>
+                <div class="form-gruop">
+                 <label for="ciudad">Ciudad*</label>
+                 <select id="ciudad" name="ciudad" required>
+                    <option value="">Selecciona una ciudad</option>
+                    <option value="Ciudad1">Bogota</option>
+                    <option value="Ciudad2">Medellin</option>
+                    <option value="Ciudad3">Cartagena</option>
+                    <option value="ciudad4">Cucuta</option>
+                 </select>
+                </div>
+                <div class="form-gruop">
+                    <label for="telefono">telefono(opcional)</label>
+                    <input type="tel"
+                    id="telefono"
+                    required
+                    placeholder="Escribe tu numero de telefono"
+                    pattern="[0-9]{10}">
+
+                </div>
+             </fieldset>
+
+             <fieldset>
+                <legend>Detalles Taller</legend>
+                <div class="form-group">
+                    <label for="rol">Tu cargo o rol actual</label>
+                    <input 
+                    type="radio" 
+                    id="estudiante" 
+                    name="rol" 
+                    value="estudiante" 
+                    checked>
+                    <label for="estudiante">Estudiante</label>
+                    <input 
+                    type="radio" 
+                    id="profesional" 
+                    name="rol" 
+                    value="profesional">
+                    <label for="profesional">independiente</label>
+                    <input 
+                    type="radio" 
+                    id="empleado" 
+                    name="rol" 
+                    value="empleado">
+                    <label for="empleado">empleado</label>
+                </div>
+                
+                  <label for="recomendacion">¿Como te enteraste de nosotros?</label>
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input 
+                        type="checkbox" 
+                        id="redes"
+                        name="como_enteraste"
+                        value="redes_sociales">
+                        <label for="redes">Redes sociales</label>
+                        <input 
+                        type="checkbox"
+                        id="recomendacion"
+                        name="como_enteraste"
+                        value="recomendacion">
+                        <label for="recomendacion">recomendacion</label>
+                        <input 
+                        type="checkbox"
+                        id="google"
+                        name="como_enteraste"
+                        value="busqueda_google">
+                        <label for="google">Busqueda en google</label>
+                        <input 
+                        type="checkbox"
+                        id="anuncio"
+                        name="como_enteraste"
+                        value="anuncio">
+                        <label for="anuncio">Anuncio</label>
+                        <input 
+                        type="checkbox"
+                        id="otro"
+                        name="como_enteraste"
+                        value="otro">
+                        <label for="otro">Otro</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                </div>
+
+
+             </fieldset>
+             
+
+             
+       </form>
+    
+
+    </div>
+
+    
+    
+</body>
+</html>
