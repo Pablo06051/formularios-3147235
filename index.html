@@ -135,15 +135,57 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="expectativas">¿Que expectativas esperas aprender en este taller</label>
+                    <textarea 
+                    id="expectativas"
+                    name="expectativas"
+                    rows="5"
+                    maxlength="250"
+                    placeholder="Escribe tus expectativas"
+                    required>
+                   </textarea>
+                   <small
+                    id="expectativasCount">0/250</small>
 
                 </div>
+           </fieldset>
+                      
+              <fieldset>
+                 <legend>Preferencias de contacto</legend>
+                 <div class="form-group">
+                    <label for="contacto">¿Prefieres ser contactado por?</label>
+                    <input 
+                    type="radio" 
+                    id="email_contacto" 
+                    name="contacto" 
+                    value="email" 
+                    checked>
+                    <label for="email_contacto">Correo electrónico</label>
+                    <input 
+                    type="radio" 
+                    id="telefono_contacto" 
+                    name="contacto" 
+                    value="telefono">
+                    <label for="telefono_contacto">Telefono</label>
+              </fieldset><br>
 
+              <button 
+                 type="submit"
+                 id="submitBtn">Registrarme al taller
+              </button>
 
-             </fieldset>
-             
+              <div
+                  id="loading-message"
+                  class="loading-message">enviaando registro..
+                </div>
+                <div 
+                   id="success-message"
+                   class="success-message">Registro enviado con exito!
 
-             
+                </div>
        </form>
+
+       <script src="js/script.js"></script>
     
 
     </div>
